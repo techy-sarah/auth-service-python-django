@@ -1,14 +1,3 @@
-# from .base import *
-# from decouple import config
-
-# DEBUG = False
-# ALLOWED_HOSTS = config('ALLOWED_HOSTS').split(',')
-
-# SECURE_SSL_REDIRECT = True
-# SECURE_HSTS_SECONDS = 31536000
-# SESSION_COOKIE_SECURE = True
-# CSRF_COOKIE_SECURE = True
-
 from .base import *
 from decouple import config
 
@@ -20,3 +9,14 @@ SECURE_SSL_REDIRECT = True
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+
+SWAGGER_SETTINGS = {
+    'USE_SESSION_AUTH': False,
+    'SECURITY_DEFINITIONS': {
+        'Bearer': {
+            'type': 'apiKey',
+            'name': 'Authorization',
+            'in': 'header'
+        }
+    }
+}
